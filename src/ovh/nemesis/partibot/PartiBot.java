@@ -2,11 +2,21 @@ package ovh.nemesis.partibot;
 
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.MessageBuilder;
+import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.events.GenericEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.hooks.EventListener;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.interactions.components.ActionRow;
+import net.dv8tion.jda.api.interactions.components.Button;
 import org.apache.http.util.EntityUtils;
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
 
 import javax.security.auth.login.LoginException;
 import java.text.DecimalFormat;
+import java.util.Locale;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -14,9 +24,10 @@ import java.util.concurrent.TimeUnit;
 import static org.toilelibre.libe.curl.Curl.$;
 import static org.toilelibre.libe.curl.Curl.curl;
 
-public class PartiBot {
+public class PartiBot extends ListenerAdapter {
 
     static JDA jda;
+    static JSONObject jsonObject;
 
     public static void main(String[] args) {
         JDABuilder jdaBuilder = JDABuilder.createDefault("ODYzNDAwNTc4OTYxMjQ0MTYw.YOmWcw.745x-NSxnZGc3MgyqVC4no4KoYk");
@@ -53,6 +64,8 @@ public class PartiBot {
                             jda.getGuildChannelById(863401615629221898L).getManager().setName(beta).queue();
                         }
                     }*/
+
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -65,4 +78,16 @@ public class PartiBot {
 
     }
 
+    @Override
+    public void onMessageReceived(final MessageReceivedEvent e) {
+        if (e.getMessage().getContentRaw().toLowerCase(Locale.ROOT).startsWith("partibot!message <#") && e.getMessage().getContentRaw().toLowerCase(Locale.ROOT).endsWith(">") && e.getMember().hasPermission(Permission.ADMINISTRATOR) && !e.getAuthor().isBot()) {
+            String chanId = e.getMessage().getContentRaw().toLowerCase(Locale.ROOT).split("<#|>")[1];
+            e.getGuild().getTextChannelById(chanId).sendMessage("Message :)").queue();
+        }
+    }
+
+    public static void update() {
+        JSONObject jsonObject = new JSONObject($("https://raw.githubusercontent.com/IkutoPhoenix/PartiBot/master/config.json?token=AH5AUPIGZ6GAZ7DHAWISLSLBAACSG"));
+        
+    }
 }
