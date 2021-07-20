@@ -7,7 +7,8 @@
         {
           "id": "french_role",
           "role_id": 867029597287874590,
-          "text": ":flag_fr: French/Français"
+          "text": ":flag_fr::flag_be::flag_ch::flag_ca:  French/Français",
+          "type": "primary"
         }
       ]
     }
