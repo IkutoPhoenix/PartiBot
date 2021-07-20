@@ -1,3 +1,15 @@
 {
-
+  "messages": [
+    {
+      "id": 866721989360222208,
+      "text": "Click on the buttons below to get your role :)",
+      "buttons": [
+        {
+          "id": "french_role",
+          "role_id": 867029597287874590,
+          "text": ":flag_fr: French/Français"
+        }
+      ]
+    }
+  ]
 }
