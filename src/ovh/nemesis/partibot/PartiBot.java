@@ -46,6 +46,7 @@ public class PartiBot extends ListenerAdapter {
         }
 
         if (!update()) {
+            System.out.println("Update error");
             System.exit(4);
         }
 
@@ -79,6 +80,7 @@ public class PartiBot extends ListenerAdapter {
         try {
             jsonObject1 = new JSONObject($("https://raw.githubusercontent.com/IkutoPhoenix/PartiBot/master/config.json"));
         } catch (Exception e) {
+            e.printStackTrace();
             return false;
         }
         jsonObject = jsonObject1;
@@ -94,6 +96,7 @@ public class PartiBot extends ListenerAdapter {
                 messageBuilder.setActionRows(ActionRow.of(buttons));
                 jda.getTextChannelById(data.getJSONObject(i).getLong("channel_id")).editMessageById(data.getJSONObject(i).getLong("id"), messageBuilder.build()).complete();
             } catch (Exception e) {
+                e.printStackTrace();
                 return false;
             }
         }

@@ -1,15 +1,28 @@
+
 {
   "messages": [
     {
-      "channel_id": 816358082744549408,
-      "id": 866721989360222208,
+      "channel_id": 867045424703471657,
+      "id": 867045483280990249,
       "text": "Click on the buttons below to get your role :)",
       "buttons": [
         {
-          "id": "french_role",
+          "id": "french",
           "role_id": 867029597287874590,
-          "text": ":flag_fr::flag_be::flag_ch::flag_ca:  French/Français",
-          "type": "primary"
+          "text": "French/Français",
+          "type": "secondary"
+        },
+        {
+          "id": "dutch",
+          "role_id": 867029597287874590,
+          "text": "Dutch/Nederlands",
+          "type": "secondary"
+        },
+        {
+          "id": "hindi",
+          "role_id": 867029597287874590,
+          "text": "Hindi/हिन्दी",
+          "type": "secondary"
         }
       ]
     }
