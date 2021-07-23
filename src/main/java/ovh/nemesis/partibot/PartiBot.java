@@ -36,7 +36,7 @@ public class PartiBot extends ListenerAdapter {
     static JSONObject jsonObject;
 
     public static void main(String[] args) {
-        JDABuilder jdaBuilder = JDABuilder.createDefault("ODYzNDAwNTc4OTYxMjQ0MTYw.YOmWcw.W36F_KOTB0lx5hE9uyklDgHM63Y")
+        JDABuilder jdaBuilder = JDABuilder.createDefault("ODYzNDAwNTc4OTYxMjQ0MTYw.YOmWcw._Fxt_3vxugwIIbgw5LsMZy5mI6I")
                 .addEventListeners(new EventListener());
         try {
             jda = jdaBuilder.build();
@@ -76,6 +76,7 @@ public class PartiBot extends ListenerAdapter {
 
 
     public static boolean update() {
+        System.out.println("Update");
         JSONObject jsonObject1 = null;
         try {
             jsonObject1 = new JSONObject($("https://raw.githubusercontent.com/IkutoPhoenix/PartiBot/master/config.json"));
@@ -92,9 +93,11 @@ public class PartiBot extends ListenerAdapter {
                 for (int j = 0; j < Math.min(5, data.getJSONObject(i).getJSONArray("buttons").length()); ++j) {
                     Button button = Button.of(ButtonStyle.valueOf(data.getJSONObject(i).getJSONArray("buttons").getJSONObject(j).getString("type").toUpperCase()), data.getJSONObject(i).getJSONArray("buttons").getJSONObject(j).getString("id"), data.getJSONObject(i).getJSONArray("buttons").getJSONObject(j).getString("text"));
                     buttons.add(button);
+                    System.out.println("Update Button " + data.getJSONObject(i).getJSONArray("buttons").getJSONObject(j).getString("text"));
                 }
                 messageBuilder.setActionRows(ActionRow.of(buttons));
                 jda.getTextChannelById(data.getJSONObject(i).getLong("channel_id")).editMessageById(data.getJSONObject(i).getLong("id"), messageBuilder.build()).complete();
+                System.out.println("Update Message " + data.getJSONObject(i).getString("text"));
             } catch (Exception e) {
                 e.printStackTrace();
                 return false;
