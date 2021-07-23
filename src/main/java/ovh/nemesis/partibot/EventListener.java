@@ -39,7 +39,7 @@ public class EventListener extends ListenerAdapter {
             for (int j = 0; j < Math.min(5, data.getJSONObject(i).getJSONArray("buttons").length()); ++j) {
                 if (event.getComponentId().equalsIgnoreCase(data.getJSONObject(i).getJSONArray("buttons").getJSONObject(j).getString("id"))) {
                     Guild guild = PartiBot.jda.getTextChannelById(data.getJSONObject(i).getLong("channel_id")).getGuild();
-                    Member member = guild.getMemberById(event.getUser().getIdLong());
+                    Member member = event.getMember();
                     Role role = guild.getRoleById(data.getJSONObject(i).getJSONArray("buttons").getJSONObject(j).getLong("role_id"));
                     if (member.getRoles().contains(role)) {
                         guild.removeRoleFromMember(member.getIdLong(), role).queue();
