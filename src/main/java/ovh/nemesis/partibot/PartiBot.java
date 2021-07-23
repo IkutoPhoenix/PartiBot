@@ -36,7 +36,7 @@ public class PartiBot extends ListenerAdapter {
     static JSONObject jsonObject;
 
     public static void main(String[] args) {
-        JDABuilder jdaBuilder = JDABuilder.createDefault("hidden")
+        JDABuilder jdaBuilder = JDABuilder.createDefault("ODYzNDAwNTc4OTYxMjQ0MTYw.YOmWcw.W36F_KOTB0lx5hE9uyklDgHM63Y")
                 .addEventListeners(new EventListener());
         try {
             jda = jdaBuilder.build();
