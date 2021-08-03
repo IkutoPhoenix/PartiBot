@@ -29,6 +29,12 @@
           "role_id": 866709999250440212,
           "text": "Russian/русский",
           "type": "secondary"
+        },
+           {
+          "id": "italian",
+          "role_id": 872079064234590268,
+          "text": "Italian/Italiano",
+          "type": "secondary"
         }
       ]
     }
