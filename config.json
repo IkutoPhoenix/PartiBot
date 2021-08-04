@@ -37,6 +37,19 @@
           "type": "secondary"
         }
       ]
+    },
+    {
+      "channel_id": 762788728242044949,
+      "id": 872394257535729674,
+      "text": ":tongue::earth_americas:  **PICK A LANGUAGE 2**  :earth_americas::tongue: \n \n Continuation of the message above.\n .",
+      "buttons": [
+        {
+          "id": "portuguese",
+          "role_id": 872396810499547166,
+          "text": "Portuguese/Português",
+          "type": "secondary"
+        }
+      ]
     }
   ]
 }
