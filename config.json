@@ -48,6 +48,12 @@
           "role_id": 872396810499547166,
           "text": "Portuguese/Português",
           "type": "secondary"
+        },
+         {
+          "id": "spanish",
+          "role_id": 887240186524745748,
+          "text": "Spanish/Español",
+          "type": "secondary"
         }
       ]
     }
