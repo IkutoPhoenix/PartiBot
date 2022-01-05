@@ -54,6 +54,12 @@
           "role_id": 887240186524745748,
           "text": "Spanish/Español",
           "type": "secondary"
+        },
+         {
+          "id": "turkish",
+          "role_id": 928311471958536193,
+          "text": "Turkish/Türkçe",
+          "type": "secondary"
         }
       ]
     }
