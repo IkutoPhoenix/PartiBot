@@ -62,6 +62,19 @@
           "type": "secondary"
         }
       ]
+    },
+    {
+      "channel_id": 826961755854995466,
+      "id": 935633524659200030,
+      "text": "test",
+      "buttons": [
+        {
+          "id": "test",
+          "role_id": 867029597287874590,
+          "text": "test",
+          "type": "secondary"
+        }
+      ]
     }
   ]
 }
