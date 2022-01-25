@@ -5,75 +5,59 @@
       "channel_id": 762788728242044949,
       "id": 868147374328012820,
       "text": ":tongue::earth_americas:  **PICK A LANGUAGE**  :earth_americas::tongue: \n \n **English is the main language here!** \n However, if you're more comfortable speaking another language, click on the button below to unlock your language section.\n \n Request <@!559686401201930251> to add a new language to this message. We can create a new section if there are more than **20** active Discord users with the language role.\n .",
-      "buttons": [
-        {
-          "id": "french",
-          "role_id": 864135715486826526,
-          "text": "French/Français",
-          "type": "secondary"
-        },
-        {
-          "id": "dutch",
-          "role_id": 866710107232534580,
-          "text": "Dutch/Nederlands",
-          "type": "secondary"
-        },
-        {
-          "id": "hindi",
-          "role_id": 867030579227394049,
-          "text": "Hindi/हिन्दी",
-          "type": "secondary"
-        },
-         {
-          "id": "russian",
-          "role_id": 866709999250440212,
-          "text": "Russian/русский",
-          "type": "secondary"
-        },
+      "rows": [
+        [
+          {
+            "id": "french",
+            "role_id": 864135715486826526,
+            "text": "French/Français",
+            "type": "secondary"
+          },
+          {
+            "id": "dutch",
+            "role_id": 866710107232534580,
+            "text": "Dutch/Nederlands",
+            "type": "secondary"
+          },
+          {
+            "id": "hindi",
+            "role_id": 867030579227394049,
+            "text": "Hindi/हिन्दी",
+            "type": "secondary"
+          },
            {
-          "id": "italian",
-          "role_id": 872079064234590268,
-          "text": "Italian/Italiano",
-          "type": "secondary"
-        }
-      ]
-    },
-    {
-      "channel_id": 762788728242044949,
-      "id": 872394257535729674,
-      "text": ":tongue::earth_americas:  **PICK A LANGUAGE 2**  :earth_americas::tongue: \n \n Continuation of the message above.\n .",
-      "buttons": [
-        {
-          "id": "portuguese",
-          "role_id": 872396810499547166,
-          "text": "Portuguese/Português",
-          "type": "secondary"
-        },
-         {
-          "id": "spanish",
-          "role_id": 887240186524745748,
-          "text": "Spanish/Español",
-          "type": "secondary"
-        },
-         {
-          "id": "turkish",
-          "role_id": 928311471958536193,
-          "text": "Turkish/Türkçe",
-          "type": "secondary"
-        }
-      ]
-    },
-    {
-      "channel_id": 826961755854995466,
-      "id": 935633524659200030,
-      "text": "test",
-      "buttons": [
-        {
-          "id": "test",
-          "role_id": 867029597287874590,
-          "text": "test",
-          "type": "secondary"
-        }
+            "id": "russian",
+            "role_id": 866709999250440212,
+            "text": "Russian/русский",
+            "type": "secondary"
+          },
+             {
+            "id": "italian",
+            "role_id": 872079064234590268,
+            "text": "Italian/Italiano",
+            "type": "secondary"
+          }
+        ],
+        [
+          {
+            "id": "portuguese",
+            "role_id": 872396810499547166,
+            "text": "Portuguese/Português",
+            "type": "secondary"
+          },
+           {
+            "id": "spanish",
+            "role_id": 887240186524745748,
+            "text": "Spanish/Español",
+            "type": "secondary"
+          },
+           {
+            "id": "turkish",
+            "role_id": 928311471958536193,
+            "text": "Turkish/Türkçe",
+            "type": "secondary"
+          }
+        ]
       ]
     }
   ]
