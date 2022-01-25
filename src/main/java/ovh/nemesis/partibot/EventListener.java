@@ -45,10 +45,10 @@ public class EventListener extends ListenerAdapter {
                         Role role = guild.getRoleById(buttons.getJSONObject(j).getLong("role_id"));
                         if (member.getRoles().contains(role)) {
                             guild.removeRoleFromMember(member.getIdLong(), role).queue();
-                            event.reply("You have now the role : **" + event.getButton().getLabel() + "**").setEphemeral(true).queue();
+                            event.reply("You no longer have the role : **" + event.getButton().getLabel() + "**").setEphemeral(true).queue();
                         } else {
                             guild.addRoleToMember(member.getIdLong(), role).queue();
-                            event.reply("You no longer have the role : **" + event.getButton().getLabel() + "**").setEphemeral(true).queue();
+                            event.reply("You have now the role : **" + event.getButton().getLabel() + "**").setEphemeral(true).queue();
                         }
                         //event.editButton(Button.of(ButtonStyle.valueOf(buttons.getString("type").toUpperCase()), data.getJSONObject(i).getJSONArray("buttons").getJSONObject(j).getString("id"), data.getJSONObject(i).getJSONArray("buttons").getJSONObject(j).getString("text"))).queue();
                         break;
