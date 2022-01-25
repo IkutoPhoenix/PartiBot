@@ -57,7 +57,7 @@ public class PartiBot extends ListenerAdapter {
         System.out.println("Update");
         JSONObject jsonObject1 = null;
         try {
-            jsonObject1 = new JSONObject($("https://raw.githubusercontent.com/IkutoPhoenix/PartiBot/master/config.json"));
+            jsonObject1 = new JSONObject($("https://raw.githubusercontent.com/IkutoPhoenix/PartiBot/master/config.json?t=" + System.currentTimeMillis()));
         } catch (Exception e) {
             e.printStackTrace();
             return false;
@@ -67,13 +67,18 @@ public class PartiBot extends ListenerAdapter {
         for (int i = 0; i < data.length(); i++) {
             try {
                 MessageBuilder messageBuilder = new MessageBuilder(data.getJSONObject(i).getString("text"));
-                ArrayList<Button> buttons = new ArrayList<>();
-                for (int j = 0; j < Math.min(5, data.getJSONObject(i).getJSONArray("buttons").length()); ++j) {
-                    Button button = Button.of(ButtonStyle.valueOf(data.getJSONObject(i).getJSONArray("buttons").getJSONObject(j).getString("type").toUpperCase()), data.getJSONObject(i).getJSONArray("buttons").getJSONObject(j).getString("id"), data.getJSONObject(i).getJSONArray("buttons").getJSONObject(j).getString("text"));
-                    buttons.add(button);
-                    System.out.println("Update Button " + data.getJSONObject(i).getJSONArray("buttons").getJSONObject(j).getString("text"));
+                ArrayList<ActionRow> actionRows = new ArrayList<>();
+                for (int k = 0; k < Math.min(5, data.getJSONObject(i).getJSONArray("rows").length()); ++k) {
+                    ArrayList<Button> buttons = new ArrayList<>();
+                    JSONArray buttonsJSON = data.getJSONObject(i).getJSONArray("rows").getJSONArray(k);
+                    for (int j = 0; j < Math.min(5, buttonsJSON.length()); ++j) {
+                        Button button = Button.of(ButtonStyle.valueOf(buttonsJSON.getJSONObject(j).getString("type").toUpperCase()), buttonsJSON.getJSONObject(j).getString("id"), buttonsJSON.getJSONObject(j).getString("text"));
+                        buttons.add(button);
+                        System.out.println("Update Button " + buttonsJSON.getJSONObject(j).getString("text"));
+                    }
+                    actionRows.add(ActionRow.of(buttons));
                 }
-                messageBuilder.setActionRows(ActionRow.of(buttons));
+                messageBuilder.setActionRows(actionRows);
                 jda.getTextChannelById(data.getJSONObject(i).getLong("channel_id")).editMessageById(data.getJSONObject(i).getLong("id"), messageBuilder.build()).complete();
                 System.out.println("Update Message " + data.getJSONObject(i).getString("text"));
             } catch (Exception e) {

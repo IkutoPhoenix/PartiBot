@@ -36,18 +36,23 @@ public class EventListener extends ListenerAdapter {
     public void onButtonClick(@NotNull ButtonClickEvent event) {
         JSONArray data = PartiBot.jsonObject.getJSONArray("messages");
         for (int i = 0; i < data.length(); i++) {
-            for (int j = 0; j < Math.min(5, data.getJSONObject(i).getJSONArray("buttons").length()); ++j) {
-                if (event.getComponentId().equalsIgnoreCase(data.getJSONObject(i).getJSONArray("buttons").getJSONObject(j).getString("id"))) {
-                    Guild guild = PartiBot.jda.getTextChannelById(data.getJSONObject(i).getLong("channel_id")).getGuild();
-                    Member member = event.getMember();
-                    Role role = guild.getRoleById(data.getJSONObject(i).getJSONArray("buttons").getJSONObject(j).getLong("role_id"));
-                    if (member.getRoles().contains(role)) {
-                        guild.removeRoleFromMember(member.getIdLong(), role).queue();
-                    } else {
-                        guild.addRoleToMember(member.getIdLong(), role).queue();
+            for (int k = 0; k < Math.min(5, data.getJSONObject(i).getJSONArray("rows").length()); ++k) {
+                JSONArray buttons = data.getJSONObject(i).getJSONArray("rows").getJSONArray(k);
+                for (int j = 0; j < Math.min(5, buttons.length()); ++j) {
+                    if (event.getComponentId().equalsIgnoreCase(buttons.getJSONObject(j).getString("id"))) {
+                        Guild guild = PartiBot.jda.getTextChannelById(data.getJSONObject(i).getLong("channel_id")).getGuild();
+                        Member member = event.getMember();
+                        Role role = guild.getRoleById(buttons.getJSONObject(j).getLong("role_id"));
+                        if (member.getRoles().contains(role)) {
+                            guild.removeRoleFromMember(member.getIdLong(), role).queue();
+                            event.reply("You have now the role : **" + event.getButton().getLabel() + "**").setEphemeral(true).queue();
+                        } else {
+                            guild.addRoleToMember(member.getIdLong(), role).queue();
+                            event.reply("You no longer have the role : **" + event.getButton().getLabel() + "**").setEphemeral(true).queue();
+                        }
+                        //event.editButton(Button.of(ButtonStyle.valueOf(buttons.getString("type").toUpperCase()), data.getJSONObject(i).getJSONArray("buttons").getJSONObject(j).getString("id"), data.getJSONObject(i).getJSONArray("buttons").getJSONObject(j).getString("text"))).queue();
+                        break;
                     }
-                    event.editButton(Button.of(ButtonStyle.valueOf(data.getJSONObject(i).getJSONArray("buttons").getJSONObject(j).getString("type").toUpperCase()), data.getJSONObject(i).getJSONArray("buttons").getJSONObject(j).getString("id"), data.getJSONObject(i).getJSONArray("buttons").getJSONObject(j).getString("text"))).queue();
-                    break;
                 }
             }
         }
