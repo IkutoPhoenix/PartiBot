@@ -62,6 +62,12 @@
             "role_id": 980725899831943178,
             "text": "German/Deutsch",
             "type": "secondary"
+          },
+          {
+            "id": "polish",
+            "role_id": 993949324448894976,
+            "text": "Polish/Polski",
+            "type": "secondary"
           }
         ]
       ]
